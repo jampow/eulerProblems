@@ -13,7 +13,7 @@
 
 const fib = (lim, arr) => {
 	if(!arr) arr = [1,2]
-	if(!lim) lim = 4e6
+	if(!lim) lim = 1e9 
 
 	return (last(arr) > lim) 
 		? removeLast(arr)
