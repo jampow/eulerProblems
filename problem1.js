@@ -12,7 +12,7 @@ const magicSum = num => [...Array(num).keys()].filter(mul35).reduce(sum, 0)
 
 const mul35 = num => num % 3 === 0 || num % 5 === 0
 
-const sum = (tt, num) => tt + num
+const sum = (x, y) => x + y
 
 console.log(magicSum(10))
 console.log(magicSum(100))
