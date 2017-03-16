@@ -30,6 +30,6 @@ const sum = (num, acc) => num + acc
 
 const even = num => num % 2 === 0
 
-const sumEven = lim => fib().filter(even).reduce(sum, 0)
+const sumEven = lim => fib(lim).filter(even).reduce(sum, 0)
 
 console.log(sumEven())
