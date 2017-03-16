@@ -32,4 +32,4 @@ const even = num => num % 2 === 0
 
 const sumEven = lim => fib(lim).filter(even).reduce(sum, 0)
 
-console.log(sumEven())
+console.log(sumEven(4e6))
