@@ -26,7 +26,7 @@ const removeLast = arr => arr.slice(0, arr.length - 1)
 
 const sum2lastItem = arr => arr.slice(-2).reduce(sum, 0)
 
-const sum = (num, acc) => num + acc
+const sum = (x, y) => x + y
 
 const even = num => num % 2 === 0
 
