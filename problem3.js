@@ -7,11 +7,28 @@
  */
 
 const isPrime = num => {
-	return [...Array(num).keys()]
-		.slice(2)
-		.filter(i => num % i === 0)
-		.length === 0
+	if(num > 2 && isEven(num)) return false
+
+	for(var i = 3; i < num; i += 2)
+		if(num % i === 0) return false
+
+	return true
+}
+
+const isEven = num => num % 2 === 0
+
+const lPrimeFactor = num => {
+	var st = ((isEven(num)) ? num : num -1) / 2
+	var i = (isEven(st)) ? st -1 : st
+
+	for(; i > 3; i -= 2){
+		//console.log(i);
+		if(isPrime(i) && num % i === 0) return i 
+	}
+	
 }
 
 console.log(isPrime(8))
-console.log(isPrime(13))
+console.log(isPrime(29))
+
+console.log(lPrimeFactor(600851475143))
