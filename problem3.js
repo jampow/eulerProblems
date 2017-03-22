@@ -7,10 +7,15 @@
  */
 
 const isPrime = num => {
-	if(num > 2 && isEven(num)) return false
+	if(num % 2 === 0) return (n == 2)
+	if(num % 3 === 0) return (n == 3)
 
-	for(var i = 3; i < num; i += 2)
-		if(num % i === 0) return false
+	var s = Math.sqrt(num)
+
+	for(var i = 5; i <= s; i += 6) {
+		if(num % i       === 0) return false
+		if(num % (i + 2) === 0) return false
+	}
 
 	return true
 }
