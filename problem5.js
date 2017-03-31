@@ -1,6 +1,18 @@
-const isDiv = (num, lim) => [...Array(lim).keys()]
-	.filter(i => num % (i + 1) === 0)
-	.length === lim
+/**
+ * Problem 5
+ * https://projecteuler.net/problem=5
+ *
+ * 2520 is the smallest number that can be divided by each of the numbers from 
+ * 1 to 10 without any remainder.
+ *
+ * What is the smallest positive number that is evenly divisible by all of the
+ * numbers from 1 to 20?
+ */
+
+const isDiv = (num, lim) =>
+	[...Array(lim).keys()]
+		.filter(i => num % (i + 1) === 0)
+		.length === lim
 
 const smDiv = lim => {
 	let num = lim
@@ -11,4 +23,3 @@ const smDiv = lim => {
 		
 
 console.log(smDiv(20))
-//console.log(isDiv(2520, 10))
