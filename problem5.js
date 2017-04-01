@@ -9,10 +9,11 @@
  * numbers from 1 to 20?
  */
 
-const isDiv = (num, lim) =>
-	[...Array(lim).keys()]
-		.filter(i => num % (i + 1) === 0)
-		.length === lim
+const isDiv = (num, lim) => {
+	let half = lim / 2
+	for(let i = lim; i > half; i--) if(num % i > 0) return false
+	return true
+}
 
 const smDiv = lim => {
 	let num = lim
@@ -21,5 +22,4 @@ const smDiv = lim => {
 	return num
 }
 		
-
 console.log(smDiv(20))
