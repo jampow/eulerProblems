@@ -1,4 +1,7 @@
 /**
+ * Problem 6
+ * https://projecteuler.net/problem=6
+ *
  * The sum of the squares of the first ten natural numbers is,
  * 
  * 12 + 22 + ... + 102 = 385
@@ -25,6 +28,4 @@ const squareOfSum = num =>
 
 const diff = lim => squareOfSum(lim) - sumOfSquares(lim)
 
-//console.log(sumOfSquars(10))
-//console.log(squareOfSum(10))
 console.log(diff(100))
