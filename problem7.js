@@ -22,13 +22,15 @@ const isPrime = num => {
 }
 
 const findPrime = num => {
+	if(num === 2) return 1
+
 	let c = 3
-	for(let i = 0; i <= num; i++, c += 2)
-		if(isPrime(c))
-			i += 1
+
+	for(let i = 2; i <= num; c += 2)
+		if(isPrime(c)) i += 1
 
 	return c
 }
 
-console.log(findPrime(6))
+console.log(findPrime(10001))
 
