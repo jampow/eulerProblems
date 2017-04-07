@@ -15,22 +15,29 @@ const isPrime = num => {
 		return false
 
 	let lim = Math.sqrt(num)
-	for(let i = 3; i < lim; i += 2)
+	for(let i = 3; i <= lim; i += 2)
 		if(num % i === 0) return false
 
 	return true
 }
 
 const findPrime = num => {
-	if(num === 2) return 1
+	if(num === 1) return 2
 
 	let c = 3
 
-	for(let i = 2; i <= num; c += 2)
-		if(isPrime(c)) i += 1
+	for(let i = 2; i < num; c += 2)
+		if(isPrime(c)) i++
 
 	return c
 }
 
+console.log(isPrime(9))
+
+console.log(findPrime(2))
+console.log(findPrime(3))
+console.log(findPrime(4))
+console.log(findPrime(5))
+console.log(findPrime(6))
 console.log(findPrime(10001))
 
