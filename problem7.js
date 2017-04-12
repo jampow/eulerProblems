@@ -26,18 +26,12 @@ const findPrime = num => {
 
 	let c = 3
 
-	for(let i = 2; i < num; c += 2)
+	for(let i = 1; i < num; c += 2) {
 		if(isPrime(c)) i++
+		if(i === num) return c
+	}
 
-	return c
 }
 
-console.log(isPrime(9))
-
-console.log(findPrime(2))
-console.log(findPrime(3))
-console.log(findPrime(4))
-console.log(findPrime(5))
-console.log(findPrime(6))
 console.log(findPrime(10001))
 
