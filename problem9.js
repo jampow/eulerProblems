@@ -21,7 +21,8 @@ const tripletPith = lim => {
 		for(let b = 1; b < lim; b++) {
 			let c = pit(a, b)
 			if(a + b + c === lim)
-				return { a: a, b: b, c: c }
+				// return { a: a, b: b, c: c }
+				return a * b * c
 		}
 	} 
 
