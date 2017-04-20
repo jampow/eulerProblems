@@ -11,3 +11,21 @@
  * There exists exactly one Pythagorean triplet for which a + b + c = 1000.
  * Find the product abc.
  */
+
+const sqr = n => Math.pow(n, 2)
+
+const pit = (c1, c2) => Math.sqrt(sqr(c1) + sqr(c2))
+
+const tripletPith = lim => {
+	for(let a = 1;a < lim; a++) {
+		for(let b = 1; b < lim; b++) {
+			let c = pit(a, b)
+			if(a + b + c === lim)
+				return { a: a, b: b, c: c }
+		}
+	} 
+
+	return false
+}
+
+console.log(tripletPith(1000))
