@@ -55,27 +55,37 @@ const mtx = [
 	[01,70,54,71,83,51,54,69,16,92,33,48,61,43,52,01,89,19,67,48]
 ]
 
-const hor = (mtx, x, y, qtt) => {
-	if(x > mtx.length - 1 || y > mtx[x].length - qtt) return 0
+const dir = {
+	hor : (mtx, x, y, qtt) => {
+	if(x > mtx.length - 1 || y > mtx[x].length - qtt) return [0]
 	return mtx[x].slice(y, y + qtt)
-}
-
-const ver = (mtx, x, y, qtt) => {
-	if(x > mtx.length - qtt || y > mtx[x].length - 1) return 0
+},
+ver : (mtx, x, y, qtt) => {
+	if(x > mtx.length - qtt || y > mtx[x].length - 1) return [0]
 	return mtx.slice(x, x + qtt).map((el) => el[y])
-}
-
-const diagR = (mtx, x, y, qtt) => {
-	if(x > mtx.length - qtt || y > mtx[x].length - qtt) return 0
+},
+diagR : (mtx, x, y, qtt) => {
+	if(x > mtx.length - qtt || y > mtx[x].length - qtt) return [0]
 	return mtx.slice(x, x + qtt).map((el, i) => el[y+i])
-}
-
-const diagL = (mtx, x, y, qtt) => {
-	if(x > mtx.length - qtt || y < qtt - 1) return 0
+},
+diagL : (mtx, x, y, qtt) => {
+	if(x > mtx.length - qtt || y < qtt - 1) return [0]
 	return mtx.slice(x, x + qtt).map((el, i) => el[y-i])
+}}
+
+const findMtxProd = (mtx, qtt) => {
+	let w = mtx.length
+	let h = mtx[0].length
+
+	let bgstProd = 0
+	for(let x = 0; x < w; x++)
+		for(let y = 0; y < h; y++)
+			['hor', 'ver', 'diagR', 'diagL'].forEach(func =>{
+				let arr = dir[func](mtx, x, y, qtt)
+				let prod = arr.reduce((a, b) => a * b)
+				if(prod > bgstProd) bgstProd = prod
+			})
+	return bgstProd
 }
 
-console.log(hor(mtx, 19, 16, 4))
-console.log(ver(mtx, 16, 19, 4))
-console.log(diagR(mtx, 16, 16, 4))
-console.log(diagL(mtx, 0, 3, 4))
+console.log(findMtxProd(mtx, 4))
