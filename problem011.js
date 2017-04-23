@@ -60,4 +60,9 @@ const hor = (mtx, x, y, qtd) => {
 	return mtx[x].slice(y, y + qtd)
 }
 
-console.log(right(mtx, 0, 16, 4))
+const vert = (mtx, x, y, qtd) => {
+	if(x > mtx.length - qtd || y > mtx[x].length - 1) return 0
+	return mtx.slice(x, x + qtd).map((el, idx) => el[y])
+}
+
+console.log(vert(mtx, 16, 19, 4))
