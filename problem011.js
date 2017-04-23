@@ -55,7 +55,7 @@ const mtx = [
 	[01,70,54,71,83,51,54,69,16,92,33,48,61,43,52,01,89,19,67,48]
 ]
 
-const right = (mtx, x, y, qtd) =>{
+const hor = (mtx, x, y, qtd) => {
 	if(x > mtx.length - 1 || y > mtx[x].length - qtd) return 0
 	return mtx[x].slice(y, y + qtd)
 }
