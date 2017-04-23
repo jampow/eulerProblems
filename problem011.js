@@ -55,14 +55,27 @@ const mtx = [
 	[01,70,54,71,83,51,54,69,16,92,33,48,61,43,52,01,89,19,67,48]
 ]
 
-const hor = (mtx, x, y, qtd) => {
-	if(x > mtx.length - 1 || y > mtx[x].length - qtd) return 0
-	return mtx[x].slice(y, y + qtd)
+const hor = (mtx, x, y, qtt) => {
+	if(x > mtx.length - 1 || y > mtx[x].length - qtt) return 0
+	return mtx[x].slice(y, y + qtt)
 }
 
-const vert = (mtx, x, y, qtd) => {
-	if(x > mtx.length - qtd || y > mtx[x].length - 1) return 0
-	return mtx.slice(x, x + qtd).map((el, idx) => el[y])
+const ver = (mtx, x, y, qtt) => {
+	if(x > mtx.length - qtt || y > mtx[x].length - 1) return 0
+	return mtx.slice(x, x + qtt).map((el) => el[y])
 }
 
-console.log(vert(mtx, 16, 19, 4))
+const diagR = (mtx, x, y, qtt) => {
+	if(x > mtx.length - qtt || y > mtx[x].length - qtt) return 0
+	return mtx.slice(x, x + qtt).map((el, i) => el[y+i])
+}
+
+const diagL = (mtx, x, y, qtt) => {
+	if(x > mtx.length - qtt || y < qtt - 1) return 0
+	return mtx.slice(x, x + qtt).map((el, i) => el[y-i])
+}
+
+console.log(hor(mtx, 19, 16, 4))
+console.log(ver(mtx, 16, 19, 4))
+console.log(diagR(mtx, 16, 16, 4))
+console.log(diagL(mtx, 0, 3, 4))
