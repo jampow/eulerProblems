@@ -24,9 +24,25 @@
  * divisors?
  */
 
-const triang = num => [...Array(num+1).keys()].reduce((a, b) => a+b) 
+const triang = num => {
+	let sum = 0
+	let i = 1
+	while(i <= num) {
+		sum += i
+		i++
+	}
+	return sum
+}
 
-const factor = num => [...Array(num+1).keys()].filter(n => num % n === 0)
+const factor = num => {
+	let f = []
+	let i = 1
+	while(i <= num) {
+		if(num % i === 0) f.push(i)
+		i++
+	}
+	return f
+}
 
 const findTriangle = num => {
 	let i = 1
