@@ -23,3 +23,18 @@
  * What is the value of the first triangle number to have over five hundred 
  * divisors?
  */
+
+const triang = num => [...Array(num+1).keys()].reduce((a, b) => a+b) 
+
+const factor = num => [...Array(num+1).keys()].filter(n => num % n === 0)
+
+const findTriangle = num => {
+	let i = 1
+	while(factor(triang(i)).length <= num)
+		i++
+	return i
+}
+
+console.log(triang(7))
+console.log(factor(28))
+console.log(findTriangle(500))
