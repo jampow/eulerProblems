@@ -48,9 +48,7 @@ const findTriangle = num => {
 	let i = 1
 	while(factor(triang(i)).length <= num)
 		i++
-	return i
+	return triang(i)
 }
 
-console.log(triang(7))
-console.log(factor(28))
 console.log(findTriangle(500))
