@@ -210,4 +210,5 @@ const numbers = [
 	53503534226472524250874054075591789781264330331690
 ]
 
-
+//const get
+console.log(numbers.reduce((a, b) => a + b).toString())
