@@ -211,4 +211,10 @@ const numbers = [
 ]
 
 //const get
-console.log(numbers.reduce((a, b) => a + b).toString())
+const sumCol = (col, ot) => col.reduce((a, b) => a + b) + ot
+
+const getCol = (mtx, col) => mtx.map(el => el[col])
+
+const prepMtx = mtx => mtx.map(i => i.toString().split('').map(n => n * 1))
+
+console.log(prepMtx(numbers)[0])
