@@ -211,13 +211,24 @@ const numbers = [
 ]
 
 //const get
-const sumCol = (col, ot) => col.reduce((a, b) => a + b) + ot
+const sumCol = (col, ot) => col.reduce((a, b) => a + b) + ((ot) ? ot : 0)
 
 const getCol = (mtx, col) => mtx.map(el => el[col])
 
 const prepMtx = mtx => mtx.map(i => i.split('').map(n => n * 1))
 
-const sumArr = arr => {
+const sumArr = (arr, qtt) => {
+	let mtx = prepMtx(numbers)
+	let result = []
+	let pRes = 0
+
+	for(let i  = arr[0].length - 1; i >= 0; i--) {
+		pRes = sumCol(getCol(mtx, i), pRes).toString().split('')
+		result.unshift(pRes.pop())
+		pRes = pRes.join('') * 1
+	}
+	return result.slice(0, qtt).join('')
+
 }
 
-console.log(getCol(prepMtx(numbers), 0))
+console.log(sumArr(numbers, 10))
