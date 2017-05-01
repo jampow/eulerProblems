@@ -210,7 +210,7 @@ const numbers = [
 	'53503534226472524250874054075591789781264330331690'
 ]
 
-const sumCol = (col, ot) => col.reduce((a, b) => a + b) + ((ot) ? ot : 0)
+const sumCol = (col, ot) => col.reduce((a, b) =>  +a + +b) + ((ot) ? ot : 0)
 
 const getCol = (mtx, col) => mtx.map(el => el[col])
 
@@ -225,12 +225,16 @@ const sumArr = (arr, qtt) => {
 		if(i > 0) {
 			pRes = sumCol(getCol(mtx, i), pRes).toString().split('')
 			result.unshift(pRes.pop())
-			pRes = pRes.join('') * 1
+			pRes = +pRes.join('')
 		} else {
-			result.unshift(sumCol(getCol(mtx, i)).toString())
+			result.unshift(sumCol(getCol(mtx, i), pRes).toString())
 		}
 	}
-	return result.slice(0, qtt).join('')
+	return result
+		.join('')
+		.split('')
+		.slice(0, qtt)
+		.join('')
 }
 
 console.log(sumArr(numbers, 10))
