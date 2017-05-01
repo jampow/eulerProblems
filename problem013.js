@@ -233,4 +233,4 @@ const sumArr = (arr, qtt) => {
 	return result.slice(0, qtt).join('')
 }
 
-console.log(sumArr(test, 10))
+console.log(sumArr(numbers, 10))
