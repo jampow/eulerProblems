@@ -21,3 +21,6 @@
  * NOTE: Once the  chain starts the terms are allowed to go above one million.
  */
 
+const even = num => n / 2
+
+const odd = num => 3n + 1
