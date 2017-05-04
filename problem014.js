@@ -21,6 +21,15 @@
  * NOTE: Once the  chain starts the terms are allowed to go above one million.
  */
 
-const even = num => n / 2
+const even = n => n / 2
 
-const odd = num => 3n + 1
+const odd = n => 3 * n + 1
+
+const collatzCount = (num, i = 1) => {
+	if(num === 1)
+		return i
+	else
+		return collatz( (num % 2 === 0) ? even(num) : odd(num), ++i)
+}
+
+console.log(collatzCount(13, 1))
