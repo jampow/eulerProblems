@@ -29,7 +29,7 @@ const collatzCount = (num, i = 1) => {
 	if(num === 1)
 		return i
 	else
-		return collatz( (num % 2 === 0) ? even(num) : odd(num), ++i)
+		return collatzCount( (num % 2 === 0) ? even(num) : odd(num), ++i)
 }
 
 console.log(collatzCount(13, 1))
