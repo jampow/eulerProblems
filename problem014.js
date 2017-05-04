@@ -32,4 +32,19 @@ const collatzCount = (num, i = 1) => {
 		return collatzCount( (num % 2 === 0) ? even(num) : odd(num), ++i)
 }
 
-console.log(collatzCount(13, 1))
+const findBiggestChain = lim => {
+	let res = 0
+	let bCount = 0
+
+	for(let i = 2; i < lim; i++) {
+		let count = collatzCount(i)
+		if(count > bCount){
+			res = i
+			bCount = count
+		}
+	}
+
+	return res
+}
+
+console.log(findBiggestChain(1e6))
