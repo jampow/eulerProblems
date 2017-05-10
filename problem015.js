@@ -9,8 +9,17 @@
  */
 
 const buildGrid = (w, h) => {
-	return new Array(w).map(() => console.log(new Array(h)))
+	return [...Array(w)].map(i => [...Array(h)])
 }
 
-console.log(buildGrid(20, 20)[0])
-console.log([...Array(20)])
+const prepareGrid = grid => {
+	for(let i = 0; i < grid.length; i++)
+	return grid.map((x, i) => {
+		if(i === 0)
+			return x.map(y => 1)
+		else
+			return x.map((y, j) => (j === 0) ? 1 : 0)
+	})
+}
+
+console.log(prepareGrid(buildGrid(20, 20)))
