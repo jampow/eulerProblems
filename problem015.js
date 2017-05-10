@@ -8,3 +8,9 @@
  * How many such routes are there through a 20x20 grid?
  */
 
+const buildGrid = (w, h) => {
+	return new Array(w).map(() => console.log(new Array(h)))
+}
+
+console.log(buildGrid(20, 20)[0])
+console.log([...Array(20)])
