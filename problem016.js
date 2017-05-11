@@ -7,3 +7,8 @@
  * What is the sum of the digits of the number 2^1000?
  */
 
+const sumDigits = num => num.toString()
+	.split('')
+	.reduce((prev, curr) => +prev + +curr)
+
+console.log(sumDigits(1234))
