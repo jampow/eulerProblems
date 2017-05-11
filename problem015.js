@@ -22,4 +22,14 @@ const prepareGrid = grid => {
 	})
 }
 
-console.log(prepareGrid(buildGrid(20, 20)))
+const countPaths = (w, h) => {
+	let grid = prepareGrid(buildGrid(w + 1, h + 1))
+	for(let i = 1; i <= w; i++){
+		for(let j = 1; j <= h; j++){
+			grid[i][j] = grid[i-1][j] + grid[i][j-1]
+		}
+	}
+	return grid[w][h]
+}
+
+console.log(countPaths(20, 20))
