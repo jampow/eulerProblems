@@ -35,9 +35,16 @@ const sumArr = arr => {
 	let _y = Math.max.apply(null, arr.map(a => a.length))
 	let prod = []
 
-	for(let y = 0; y < _y; y++)
-		let sum = arr.map(i => i[y]).reduce((pre, cur) => +pre + +cur)
-	return max
+	console.log(arr);
+	for(let y = 0; y < _y; y++) {
+		let sum = arr
+			.map(i => i[y])
+			.reduce((pre, cur) => +pre + +cur)
+			.toString()
+		prod.push(sum)
+	}
+
+	return prod
 }
 
 const longPow = (base, exp) => {
