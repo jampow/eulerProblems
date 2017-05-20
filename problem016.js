@@ -38,7 +38,7 @@ const sumArr = arr => {
 	console.log(arr);
 	for(let y = 0; y < _y; y++) {
 		let sum = arr
-			.map(i => i[y])
+			.map(i => i[y] ? i[y] : 0)
 			.reduce((pre, cur) => +pre + +cur)
 			.toString()
 		prod.push(sum)
