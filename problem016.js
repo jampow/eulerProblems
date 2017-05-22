@@ -35,7 +35,6 @@ const sumArr = arr => {
 	let _y = Math.max.apply(null, arr.map(a => a.length))
 	let prod = []
 
-	console.log(arr);
 	for(let y = 0; y < _y; y++) {
 		let sum = arr
 			.map(i => i[y] ? i[y] : 0)
@@ -46,11 +45,23 @@ const sumArr = arr => {
 
 	let dec = 0
 
-	prod.forEach(n => {
-		n.length >= 2 
+	prod = prod.map(n => {
+		let ret
+		let num
+		let ldec = dec
+		dec = 0
+
+		num = n.split('')
+		ret = num.pop()
+
+		if(n.length >= 2) {
+			dec = num.join('')
+		}
+
+		return +ret + +ldec
 	})
 
-	return prod
+	return prod.reverse().join('')
 }
 
 const longPow = (base, exp) => {
