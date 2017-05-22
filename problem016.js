@@ -44,6 +44,12 @@ const sumArr = arr => {
 		prod.push(sum)
 	}
 
+	let dec = 0
+
+	prod.forEach(n => {
+		n.length >= 2 
+	})
+
 	return prod
 }
 
