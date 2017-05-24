@@ -27,7 +27,7 @@ const longMult = (_x, _y) => {
 		})
 		partMult[i].push(dec)
 	})
-	return partMult
+	return sumArr(partMult)
 }
 
 const sumArr = arr => {
@@ -76,4 +76,5 @@ const longPow = (base, exp) => {
 }
 
 //console.log(sumDigits(Math.pow(2, 1000)))
-console.log(sumArr(longMult('63', '622')))
+//console.log(longMult('63', '622'))
+console.log(longPow('2', '1000'))
