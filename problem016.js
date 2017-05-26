@@ -61,20 +61,21 @@ const sumArr = arr => {
 		return +ret + +ldec
 	})
 
-	return prod.reverse().join('')
+	return clearLeftZeros(prod.reverse().join(''))
 }
+
+const clearLeftZeros = str => str.replace(/^0*/, '')
 
 const longPow = (base, exp) => {
 	prod = base.toString()
+	expStr = base.toString()
 	let i = 1
 
 	while(i < exp){
-		prod = longMult(prod, exp)
+		prod = longMult(prod, expStr)
 		i++
 	}
 	return prod
 }
 
-//console.log(sumDigits(Math.pow(2, 1000)))
-//console.log(longMult('63', '622'))
-console.log(longPow('2', '1000'))
+console.log(sumDigits(longPow(2, 1000)))
