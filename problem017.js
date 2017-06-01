@@ -52,19 +52,37 @@ const writeNumber = number => {
 
 	let result = ''
 
-	result += `${numbers[arrNum[0]]} `
+	if(arrNum.length == 4){
+		result += `${numbers[arrNum.shift()]} `
+		result += `${numbers['1000']} `
+	}
 
-	switch (arrNum.length) {
-		case 4:
-			result += `${numbers['1000']} `
-		break
-		case 3:
-			result += `${numbers['100']} `
-		break
+	if(arrNum.length == 3){
+		result += `${numbers[arrNum.shift()]} `
+		result += `${numbers['100']} `
+	}
 
+	if(arrNum.length == 2){
+		if(result.length > 0) result += 'and '
+
+		let dec = (+arrNum.join('') < 20)
+			? arrNum.join('')
+			: arrNum.shift()
+
+		result += `${numbers[dec]} `
+	}
+
+	if(arrNum.length == 1){
+		if(result.length > 0) result = result.replace(/\s$/, '-')
+		result += `${numbers[arrNum.shift()]} `
 	}
 
 	return result
 }
 
 console.log(writeNumber(342))
+console.log(writeNumber(115))
+console.log(writeNumber(46))
+console.log(writeNumber(30))
+console.log(writeNumber(15))
+console.log(writeNumber(5))
