@@ -58,18 +58,25 @@ const writeNumber = number => {
 	}
 
 	if(arrNum.length == 3){
-		result += `${numbers[arrNum.shift()]} `
-		result += `${numbers['100']} `
+		let n = arrNum.shift()
+
+		if(n !== '0') {
+			result += `${numbers[n]} `
+			result += `${numbers['100']} `
+		}
 	}
 
 	if(arrNum.length == 2){
 		if(result.length > 0) result += 'and '
 
 		let dec = (+arrNum.join('') < 20)
-			? arrNum.join('')
+			? +arrNum.join('').toString()
 			: arrNum.shift()
 
-		result += `${numbers[dec]} `
+		if(arrNum[arrNum.length - 1] === '0')
+			return result + numbers[arrNum.join('')]
+		else
+			result += `${numbers[dec]} `
 	}
 
 	if(arrNum.length == 1){
@@ -80,9 +87,20 @@ const writeNumber = number => {
 	return result
 }
 
-console.log(writeNumber(342))
-console.log(writeNumber(115))
-console.log(writeNumber(46))
-console.log(writeNumber(30))
-console.log(writeNumber(15))
-console.log(writeNumber(5))
+const log = num => console.log(num.toString(), '\t: ', writeNumber(num))
+
+log(1500)
+log(1370)
+log(1070)
+log(1042)
+log(1007)
+log(704)
+log(600)
+log(342)
+log(290)
+log(115)
+log(46)
+log(30)
+log(15)
+log(10)
+log(5)
