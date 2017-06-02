@@ -84,23 +84,7 @@ const writeNumber = number => {
 		result += `${numbers[arrNum.shift()]} `
 	}
 
-	return result
+	return result.replace(/\s$/,'')
 }
 
-const log = num => console.log(num.toString(), '\t: ', writeNumber(num))
-
-log(1500)
-log(1370)
-log(1070)
-log(1042)
-log(1007)
-log(704)
-log(600)
-log(342)
-log(290)
-log(115)
-log(46)
-log(30)
-log(15)
-log(10)
-log(5)
+module.exports = writeNumber
