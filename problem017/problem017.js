@@ -71,11 +71,11 @@ const writeNumber = number => {
 	if(arrNum.length == 2){
 		if(result.length > 0) result += 'and '
 
-		let dec = (+arrNum.join('') < 20)
-			? +arrNum.join('').toString()
-			: arrNum.shift()
+		let dec = (+arrNum.join('') < 20 || arrNum[1] === '0')
+			? arrNum.join('')
+			: arrNum.shift() + '0'
 
-		if(arrNum[arrNum.length - 1] === '0')
+		if(arrNum[1] === '0')
 			return result + numbers[arrNum.join('')]
 		else
 			result += `${numbers[dec]} `
