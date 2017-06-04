@@ -64,6 +64,8 @@ const writeNumber = number => {
 			result += `${numbers[n]} `
 			result += `${numbers['100']} `
 		}
+
+		if(arrNum.join('') === '00') return result.trim()
 	}
 
 	if(arrNum.length == 2){
@@ -84,7 +86,7 @@ const writeNumber = number => {
 		result += `${numbers[arrNum.shift()]} `
 	}
 
-	return result.replace(/\s$/,'')
+	return result.trim()
 }
 
 module.exports = writeNumber
