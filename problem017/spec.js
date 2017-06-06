@@ -1,4 +1,4 @@
-var writeNumber = require('./problem017.js')
+var writeNumber = require('./numberToWord.js')
 
 it('write number 5', () => {
 	expect(writeNumber(5)).toBe('five')
