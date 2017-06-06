@@ -72,7 +72,7 @@ const writeNumber = number => {
 		if(result.length > 0) result += 'and '
 
 		let dec = (+arrNum.join('') < 20 || arrNum[1] === '0')
-			? arrNum.join('')
+			? Number.parseInt(arrNum.join('')).toString()
 			: arrNum.shift() + '0'
 
 		if(arrNum[1] === '0')
