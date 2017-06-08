@@ -13,3 +13,18 @@
  * letters. The use of "and" when writing out numbers is in compliance with
  * British usage.
  */
+
+var writeNumber = require('./numberToWord.js')
+
+const countLetters = text => text.match(/[^\s-]/g).length
+
+const sumLettersInterval = (start, finish) => {
+	let result = 0
+
+	for(let i = start; i <= finish; i++)
+		result += countLetters(writeNumber(i))
+
+	return result
+}
+
+console.log(sumLettersInterval(1,1000))
