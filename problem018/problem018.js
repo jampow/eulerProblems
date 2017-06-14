@@ -16,3 +16,17 @@ const trg = [
 [63, 66, 04, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31],
 [04, 62, 98, 27, 23, 09, 70, 98, 73, 93, 38, 53, 60, 04, 23]
 ];
+
+const highestSum = trg => {
+	let size = trg.length
+	let lst = trg.splice(size-1)[0]
+
+	trg[size-2] = trg[size-2].map((val, idx) => {
+		let a = lst[idx]
+		let b = lst[idx+1]
+		
+		return val + ((a > b) ? a : b)
+	})
+
+
+}
