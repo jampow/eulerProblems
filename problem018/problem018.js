@@ -1,5 +1,5 @@
 
-const trg = [
+const triangle = [
 [75],
 [95, 64],
 [17, 47, 82],
@@ -21,12 +21,18 @@ const highestSum = trg => {
 	let size = trg.length
 	let lst = trg.splice(size-1)[0]
 
-	trg[size-2] = trg[size-2].map((val, idx) => {
-		let a = lst[idx]
-		let b = lst[idx+1]
-		
-		return val + ((a > b) ? a : b)
-	})
+	if(size === 2)
+		return trg[0][0] + ((lst[0] > lst[1]) ? lst[0] : lst[1])
+	else
+		trg[size-2] = trg[size-2].map((val, idx) => {
+			let a = lst[idx]
+			let b = lst[idx+1]
+			
+			return val + ((a > b) ? a : b)
+		})
 
+	return highestSum(trg)
 
 }
+
+console.log(highestSum(triangle))
