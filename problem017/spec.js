@@ -17,7 +17,7 @@ it('write number 30', () => {
 })
 
 it('write number 46', () => {
-	expect(writeNumber(46)).toBe('fourty-six')
+	expect(writeNumber(46)).toBe('forty-six')
 })
 
 it('write number 115', () => {
@@ -29,7 +29,7 @@ it('write number 290', () => {
 })
 
 it('write number 342', () => {
-	expect(writeNumber(342)).toBe('three hundred and fourty-two')
+	expect(writeNumber(342)).toBe('three hundred and forty-two')
 })
 
 it('write number 600', () => {
@@ -45,7 +45,7 @@ it('write number 1007', () => {
 })
 
 it('write number 1042', () => {
-	expect(writeNumber(1042)).toBe('one thousand and fourty-two')
+	expect(writeNumber(1042)).toBe('one thousand and forty-two')
 })
 
 it('write number 1070', () => {
