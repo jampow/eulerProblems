@@ -63,11 +63,13 @@ const getWDay = (yr, mth, dy) => {
 	return (qttDays + 1) % 7
 }
 
-const test = (yr, mth, dy) => {
-	let mySolution = getWDay(yr, mth, dy)
-	let sys = new Date(yr, mth - 1, dy)
-	console.log(yr, mth, dy, 'sys -> ', sys.getDay(), '| my ->', mySolution, mySolution === sys.getDay())
-
+const countSundays = (sttYr, sttMth, endYr, endMth, cb) => {
+	let count = 0;
+	for(let y = sttYr; y <= endYr; y++)
+		for(let m = sttMth; m <= endMth; m++)
+			if(getWDay(y, m, 1) === 0) count++;
+	return count;
 }
 
-test(2001, 1, 1)
+
+console.log(countSundays(1901, 1, 2000, 12))
