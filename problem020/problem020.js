@@ -1,3 +1,5 @@
+const longMult = require('../util/longMult.js');
+
 const factorial = (n, acc) => {
 	if(!acc) acc = 1
 	if(n === 1)
