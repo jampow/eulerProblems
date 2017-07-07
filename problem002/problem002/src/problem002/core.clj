@@ -1,11 +1,17 @@
 (ns problem002.core)
 
 (defn fib
-  [lim, arr]
-  (if (not arr) (def arr [1, 2]))
-  (if (not lim) (def arr [1, 2]))
-  (take-last 1 arr))
+  ([] (fib 10))
+  ([lim] (fib lim [1 2]))
+  ([lim, arr]
+    (if (> (last arr) lim)
+      (drop-last arr)
+      (fib lim (conj arr (reduce + (take-last 2 arr)))))))
+
+(defn problem002
+  [lim]
+  (reduce + (filter even? (fib lim))))
 
 (defn -main
   [lim]
-  (println (fib (read-string lim) [])))
+  (println (problem002 (read-string lim))))

@@ -2,6 +2,13 @@
   (:require [clojure.test :refer :all]
             [problem002.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest fib-test
+  (testing "fib until 6"
+    (is (= [1 2 3 5] (fib 6))))
+
+  (testing "fib until 15"
+    (is (= [1 2 3 5 8 13] (fib 15))))
+
+  (testing "fib with no params"
+    (is (= [1 2 3 5 8] (fib)))))
+
