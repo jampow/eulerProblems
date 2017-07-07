@@ -1,15 +1,15 @@
-const longMult = require('../util/longMult.js');
+const strMath = require('../util/strMath.js');
 
 const factorial = (n, acc) => {
-	if(!acc) acc = 1
-	if(n === 1)
+	if(!acc) acc = '1'
+	//if(n === '1')
+	console.log(n, acc, '\n')
+	if(n === '1')
 		return acc
 	else
-		return factorial(n - 1, acc * n)
+		return factorial((+n - 1).toString() , strMath.mult(acc, n))
 }
 
-const sumDigits = n => n.toString()
-	.split('')
-	.reduce((x,y) => +x + +y, 0)
+const sumDigits = n => n.split('').reduce((x,y) => +x + +y, 0)
 
-console.log(sumDigits(factorial(100)))
+console.log(sumDigits(factorial('100')))
