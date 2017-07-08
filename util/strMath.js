@@ -1,3 +1,5 @@
+// Used on problems: 16, 20
+
 const longMult = (_x, _y) => {
 	let xa = _x.split('').reverse()
 	let ya = _y.split('').reverse()
