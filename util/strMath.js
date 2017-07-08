@@ -18,7 +18,6 @@ const longMult = (_x, _y) => {
 }
 
 const sumArr = arr => {
-	let _x = arr.length
 	let _y = Math.max.apply(null, arr.map(a => a.length))
 	let prod = []
 
@@ -38,14 +37,15 @@ const sumArr = arr => {
 		let ldec = dec
 		dec = 0
 
-		num = n.split('')
+
+		num = (+ldec + +n).toString().split('')
 		ret = num.pop()
 
-		if(n.length >= 2) {
+		if(num.length > 0) {
 			dec = num.join('')
 		}
 
-		return +ret + +ldec
+		return ret
 	})
 
 	return clearLeftZeros(prod.reverse().join(''))
