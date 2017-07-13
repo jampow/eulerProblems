@@ -6,6 +6,13 @@ const getDivisors = n => {
 	return divs
 }
 
+const sum = (x, y) => x + y
+
+const isAmicable = n => {
+	let s = getDivisors(n).reduce(sum, 0)
+	return n === getDivisors(s).reduce(sum, 0)
+}
+
 module.exports = {
 	getDivisors: getDivisors
 }
