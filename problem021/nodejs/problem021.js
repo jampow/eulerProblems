@@ -13,6 +13,18 @@ const isAmicable = n => {
 	return n === getDivisors(s).reduce(sum, 0)
 }
 
+const findAmicablesUnder = n => {
+	let aNumbers = []
+	for(let i = 2; i <= n; i++)
+		if(isAmicable(i)) aNumbers.push(i)
+	return aNumbers
+}
+
+console.log(findAmicablesUnder(1000).reduce(sum,0))
+console.log(getDivisors(2))
+
 module.exports = {
-	getDivisors: getDivisors
+	getDivisors: getDivisors,
+	isAmicable: isAmicable,
+	findAmicablesUnder: findAmicablesUnder
 }
