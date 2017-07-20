@@ -10,7 +10,7 @@ const sum = (x, y) => x + y
 
 const isAmicable = n => {
 	let s = getDivisors(n).reduce(sum, 0)
-	return n === getDivisors(s).reduce(sum, 0)
+	return n === getDivisors(s).reduce(sum, 0) && n !== s
 }
 
 const findAmicablesUnder = n => {
@@ -20,8 +20,7 @@ const findAmicablesUnder = n => {
 	return aNumbers
 }
 
-console.log(findAmicablesUnder(1000).reduce(sum,0))
-console.log(getDivisors(2))
+console.log(findAmicablesUnder(10000).reduce(sum,0))
 
 module.exports = {
 	getDivisors: getDivisors,
