@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const file = fs.readFileSync(__dirname + '/../names.txt')
 
-const names = eval('[' + file.toString() + ']').sort()
+const names = eval('[' + file.toString() + ']')
 
 const letterPts = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 
@@ -16,8 +16,14 @@ const sumLetters = (_a, _b) => {
 	return (a || _a) +b
 }
 
-const getNamePts = name => name.split('')
-	.reduce(sumLetters)
+const getNamePts = name => name.split('').reduce(sumLetters)
 
-console.log(names[937]);
-console.log(getNamePts(names[937]));
+const getScoreName = list => {
+	return list.sort()
+		.map((name, i) => {
+			return getNamePts(name) * (i + 1)
+		}).reduce((a, b) => a + b)
+}
+console.log(getScoreName(names));
+
+
