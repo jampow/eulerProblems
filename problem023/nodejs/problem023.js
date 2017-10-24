@@ -1,3 +1,6 @@
+const limit = 28123
+const abundant = []
+
 /**
  * number status tells if a number is perfect, deficient or abudant
  *
@@ -22,6 +25,16 @@ const getDivisors = n => {
 	return divs
 }
 
+const getAbundants = limit => {
+	let abund = []
+	for(let i = 2; i < limit; i++) {
+		if(getStatus(i) === 1) 
+			abund.push(i)
+	}
+	return abund
+}
+
 let i = 24
 console.log(getDivisors(i))
 console.log(getStatus(i))
+console.log(getAbundants(limit))
