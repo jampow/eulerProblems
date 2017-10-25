@@ -34,7 +34,20 @@ const getAbundants = limit => {
 	return abund
 }
 
+const generateBList = numbers => {
+	let len = numbers.length
+	let bl = []
+	for(let x = 0; x < len; x++){
+		for(let y = x; y < len; y++){
+			let z = numbers[y] + numbers[x]
+			if(bl.indexOf(z) === -1) bl.push(z)
+		}
+	}
+	return bl
+}
+
 let i = 24
-console.log(getDivisors(i))
-console.log(getStatus(i))
-console.log(getAbundants(limit))
+// console.log(getDivisors(i))
+// console.log(getStatus(i))
+// console.log(getAbundants(limit))
+console.log(generateBList([2,4,4]))
